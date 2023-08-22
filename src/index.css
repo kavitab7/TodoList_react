@@ -1,13 +1,251 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Assistant:wght@600&family=Barlow+Condensed:ital,wght@0,300;1,400&display=swap');
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+
+  * {
+    margin: 0%;
+    padding: 0%;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7rem;
+  }
+
+  .btn-theme {
+    position: fixed;
+    top: 20px;
+    right: 35px;
+    border: none;
+    background: none;
+  }
+
+  #sun-icon {
+    position: fixed;
+    top: 28px;
+    right: 100px;
+  }
+
+  #moon-icon {
+    position: fixed;
+    top: 28px;
+    right: 17px;
+  }
+
+  .bg-light {
+    background-color: beige;
+    color: black;
+  }
+
+
+  .bg-dark {
+    background-color: black;
+    color: white;
+  }
+
+  /* todo list */
+  .bg {
+    width: 50vw;
+    background-color: rgb(93 37 115 / 53%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: inherit;
+    border-radius: 20px;
+  }
+
+  p {
+    padding-bottom: 5px;
+  }
+
+  h2 {
+    padding-top: 13px;
+    padding-bottom: 20px;
+    font-family: 'Patua One', LatinoType;
+    font-size: 2rem;
+  }
+
+  .form-input {
+    border: none;
+    width: 37vw;
+    height: 4vh;
+  }
+
+  .addItems {
+    width: 41vw;
+    background: white;
+    border-radius: 9px;
+    text-align: center;
+  }
+
+  #icon {
+    cursor: pointer;
+    color: #16cf1e;
+    padding-left: 5px;
+  }
+
+  #icon:hover,
+  #delete-icon:hover {
+    scale: 1.35;
+  }
+
+  #delete-icon {
+    cursor: pointer;
+    color: #e63b2f;
+    padding: 0px 6px 0px 12px;
+  }
+
+  #eachlist {
+    height: 5vh;
+    width: 41vw;
+    background-color: #9a7da1;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    margin: 17px;
+    align-items: center;
+  }
+
+  h4 {
+    padding-left: 8px;
+    width: 30vw;
+  }
+
+  #list1 {
+    width: 3vw;
+    cursor: pointer;
+    height: 3vh;
+  }
+
+  .list1:checked:before {
+    background-color: green;
+  }
+
+  #eachlist input:checked {
+    border-radius: 40px;
+  }
+
+  label {
+    display: flex;
+  }
+
+  .btn {
+    background-color: #e63b2f;
+    height: 5vh;
+    width: 13vw;
+    margin: 22px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 4px 4px #6b3838;
+  }
+
+  .btn:hover {
+    background: white;
+    border: 1px solid #e63b2f;
+    color: #e63b2f;
+    box-shadow: 2px 2px #e63b2f;
+  }
+
+  /* The switch - the box around the slider */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: black;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked+.slider {
+    background-color: #515559;
+  }
+
+  input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .bg {
+      width: 80vw;
+      padding-right: 20px;
+    }
+
+    .addItems {
+      width: 48vw;
+    }
+
+    .btn {
+      font-size: 0.7rem;
+      width: 15vw;
+    }
+
+    #eachlist {
+      width: 100%;
+      font-size: smaller;
+      padding: 2px;
+      height: 8vh;
+    }
+
+    #list1 {
+      width: 5vw;
+    }
+
+    label {
+      flex-wrap: wrap;
+    }
+
+    #icon {
+      padding-left: 9px;
+    }
+  }
+
+  /* @media only screen and (max-width: 800px) {} */

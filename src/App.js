@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Post from './todoReact/Post';
+import Todo from './todoReact/Todo';
+import { ThemeContext, themes } from './context/themeContext';
+
+
 
 function App() {
+  const [theme, setTheme] = useState(themes.light)
+
+  function handleOnClick() {
+    theme === themes.light ? setTheme(themes.dark) : setTheme(themes.light)
+  }
+  const body = document.body
+  useEffect(() => {
+    switch (theme) {
+      case themes.light:
+        body.classList.remove('bg-dark')
+        body.classList.add('bg-light')
+        break;
+      case themes.dark:
+        body.classList.remove('bg-light')
+        body.classList.add('bg-dark')
+        break;
+      default:
+        body.classList.remove('bg-dark')
+        body.classList.add('bg-light')
+
+    }
+    // eslint-disable-next-line
+  }, [theme])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+
+      <ThemeContext.Provider value={{ theme, handleOnClick }}>
+        <Post theme={theme} />
+      </ThemeContext.Provider>
+      <Todo />
+    </>
   );
 }
 
